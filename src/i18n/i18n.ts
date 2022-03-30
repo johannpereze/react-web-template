@@ -1,6 +1,8 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
+import en from "./locales/en";
+import es from "./locales/es";
 
 // Documentation: https://dev.to/adrai/how-to-properly-internationalize-a-react-application-using-i18next-3hdb#why-i18next
 
@@ -19,22 +21,8 @@ i18n
       escapeValue: false, // not needed for react as it escapes by default
     },
     resources: {
-      en: {
-        translation: {
-          // here we will place our translations...
-          general: {
-            hello_world: "Hello World",
-          },
-        },
-      },
-      es: {
-        translation: {
-          // here we will place our translations...
-          general: {
-            hello_world: "Hola Mundo",
-          },
-        },
-      },
+      en: { ...en },
+      es: { ...es },
     },
   });
 
