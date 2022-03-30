@@ -1,5 +1,6 @@
 function App() {
-  return <h1>Hello World!</h1>;
+  const hola = "hola mundo";
+  return <h1>{hola}</h1>;
 }
 
 export default App;
