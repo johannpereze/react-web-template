@@ -1,39 +1,17 @@
-import { useTranslation } from "react-i18next";
-
-interface Lngs {
-  en: Lang;
-  es: Lang;
-}
-
-interface Lang {
-  nativeName: string;
-}
-
-const lngs: Lngs = {
-  en: { nativeName: "English" },
-  es: { nativeName: "Spanish" },
-};
+import { PaletteMode } from "@mui/material";
+import { useState } from "react";
+import LanguageSelector from "./components/LanguageSelector";
+import ThemeManager from "./components/managers/ThemeManager";
+import GlobalContext from "./GlobalContext";
 
 function App() {
-  const { t, i18n } = useTranslation();
+  const [colorMode, setcolorMode] = useState<PaletteMode>("light");
   return (
-    <>
-      <div>
-        {Object.keys(lngs).map((lng) => (
-          <button
-            key={lng}
-            style={{
-              fontWeight: i18n.resolvedLanguage === lng ? "bold" : "normal",
-            }}
-            type="submit"
-            onClick={() => i18n.changeLanguage(lng)}
-          >
-            {lngs[lng as keyof Lngs].nativeName}
-          </button>
-        ))}
-      </div>
-      <p>{t("general.hello_world")}</p>
-    </>
+    <GlobalContext.Provider value={{ colorMode, setcolorMode }}>
+      <ThemeManager>
+        <LanguageSelector />
+      </ThemeManager>
+    </GlobalContext.Provider>
   );
 }
 
