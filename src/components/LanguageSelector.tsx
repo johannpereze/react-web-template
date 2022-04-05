@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import ThemeSelector from "./ThemeSelector";
 
 interface Lngs {
   en: Lang;
@@ -34,7 +33,6 @@ function LanguageSelector() {
         ))}
       </div>
       <p>{t("general.hello_world")}</p>
-      <ThemeSelector />
     </>
   );
 }

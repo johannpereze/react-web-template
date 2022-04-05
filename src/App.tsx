@@ -1,15 +1,16 @@
 import { PaletteMode } from "@mui/material";
 import { useState } from "react";
-import LanguageSelector from "./components/LanguageSelector";
+
 import ThemeManager from "./components/managers/ThemeManager";
 import GlobalContext from "./GlobalContext";
+import Login from "./pages/Login";
 
 function App() {
   const [colorMode, setcolorMode] = useState<PaletteMode>("light");
   return (
     <GlobalContext.Provider value={{ colorMode, setcolorMode }}>
       <ThemeManager>
-        <LanguageSelector />
+        <Login />
       </ThemeManager>
     </GlobalContext.Provider>
   );
